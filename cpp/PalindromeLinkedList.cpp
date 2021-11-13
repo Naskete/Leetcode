@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 struct ListNode {
     int val;
@@ -31,6 +32,26 @@ bool isPalindrome(ListNode* head) {
         p=getPerious(head, p);
         q=q->next;
         
+    }
+    return true;
+}
+
+// no timeout
+bool isPalindromeII(ListNode* head) {
+    if(head==NULL || head->next == NULL) return true;
+    ListNode* p = head;
+    string s;
+    while(p){
+        s+=to_string(p->val);
+        p=p->next;
+    }
+    int len = s.length();
+    for(int i = 0; i < len; i++){
+        if(s[i]!=s[len-i-1]){
+            return false;
+        }
+        if(i>=len-i-1)
+            break;
     }
     return true;
 }
