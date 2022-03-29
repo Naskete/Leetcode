@@ -1,3 +1,4 @@
+package String;
 public class Str {
     public int strStr(String haystack, String needle) {
         if(needle.equals("") || (needle.equals(haystack))) return 0;

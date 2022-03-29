@@ -1,3 +1,4 @@
+package Array;
 public class Rotate {
     public void rotate(int[][] matrix) {
         int n = matrix.length;

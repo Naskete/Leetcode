@@ -1,3 +1,4 @@
+package BinarySearch;
 public class PiovtIndex {
     public static int findMiddleIndex(int[] nums) {
         int len = nums.length;

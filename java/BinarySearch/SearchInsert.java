@@ -1,3 +1,4 @@
+package BinarySearch;
 public class SearchInsert {
     public int searchInsert(int[] nums, int target){
         int left = 0, right = nums.length;

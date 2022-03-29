@@ -1,3 +1,4 @@
+package BinarySearch;
 public class FirstBadVersion{
     public static int firstBadVersion(int n) {
         int s = 0, i = 0;

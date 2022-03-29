@@ -1,3 +1,4 @@
+package String;
 public class LongOfSubString {
     public int lengthOfLongestSubstring(String s) {
         int len = s.length();

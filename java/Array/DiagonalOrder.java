@@ -1,3 +1,4 @@
+package Array;
 public class DiagonalOrder{
     public int[] findDiagonalOrder(int[][] mat) {
         int m = mat.length, n = mat[0].length;

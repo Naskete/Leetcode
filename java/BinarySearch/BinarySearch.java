@@ -1,3 +1,4 @@
+package BinarySearch;
 public class BinarySearch {
     public static int search(int[] list, int target){
         int start = 0, end = list.length;
