@@ -23,4 +23,21 @@ class Solution {
         slow.next = slow.next.next;
         return head;
     }
+
+    public ListNode removeNthFromEndI(ListNode head, int n) {
+        ListNode node = new ListNode(0,head);
+        ListNode slow, fast;
+        slow=node;
+        fast = head;
+        while(n--!=0){
+            fast=fast.next;
+        }
+        while(fast!=null){
+            fast=fast.next;
+            slow=slow.next;
+        }
+        slow.next = slow.next.next;
+        head = node.next;
+        return head;
+    }
 }
