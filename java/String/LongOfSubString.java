@@ -18,4 +18,21 @@ public class LongOfSubString {
         }
         return max;
     }
+
+    // public int lengthOfLongestSubstring(String s) {
+    //     int max = 0;
+    //     String str = "";
+    //     for (int i = 0; i < s.length(); i++) {
+    //         str = "";
+    //         for (int j = i; j < s.length(); j++) {
+    //             if (str.indexOf(s.charAt(j)) == -1) {
+    //                 str += s.charAt(j);
+    //             } else {
+    //                 break;
+    //             }
+    //         }
+    //         max = Math.max(str.length(), max);
+    //     }
+    //     return max;
+    // }
 }
