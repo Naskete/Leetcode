@@ -26,4 +26,38 @@ class LongestPalindromeSubString {
         }
         return true;
     }
+
+    public String longestPalindromeDP(String s) {
+        int len = s.length();
+        if (len < 2) {
+            return s;
+        }
+
+        String ans = String.valueOf(s.charAt(0));
+
+        boolean[][] dp = new boolean[len][len];
+        for (int i = 0; i < len; i++) {
+            for (int j = 0; j <= i; j++)
+                dp[i][j] = true;
+        }
+
+        // dp[i][j] = dp[i + 1][j - 1] && s[i] == s[j]
+        for (int i = len - 2; i >= 0; i--) {
+            for (int j = len -1; j >  i; j--) {
+                dp[i][j] = dp[i + 1][j - 1] && (s.charAt(i) == s.charAt(j));
+            }
+        }
+        int maxi = 0, maxj = 0, max = 0;
+        for (int i = 0; i < len; i++) {
+            for (int j = len -1; j > i; j--) {
+                if (dp[i][j] && j - i > max) {
+                    max = j - i;
+                    maxi = i;
+                    maxj = j;
+                }
+            }
+        }
+        ans = s.substring(maxi, maxj + 1);
+        return ans;
+    }
 }
