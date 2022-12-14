@@ -16,16 +16,14 @@ public class Degree {
         int res = Integer.MAX_VALUE;
         for (int num : nums) {
             if (map.get(num) == max) {
-                int idx = 0, x = max, len = 0;
-                while (nums[idx] != num) {
-                    idx++;
+                int left = 0, right = nums.length - 1;
+                while (nums[left] != num) {
+                    left++;
                 }
-                while (idx < nums.length) {
-                    if (x == 0) break;
-                    if (nums[idx] == num) x--;
-                    idx++;
-                    len++;
+                while (nums[right] != num) {
+                    right--;
                 }
+                int len = right - left + 1;
                 res = Math.min(res, len);
             }
         }
