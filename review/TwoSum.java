@@ -1,5 +1,9 @@
 package review;
 
+import java.util.List;
+import java.util.Stack;
+import java.util.ArrayList;
+
 public class TwoSum {
     // three years ago, add two list
     // l1 : 2 4 3
@@ -45,5 +49,26 @@ public class TwoSum {
             sb.append(res[i]);
         }
         return sb.toString();
+    }
+
+    // 989 add to array-form of integer
+    public List<Integer> addToArrayForm(int[] num, int k) {
+        int len = num.length;
+        int carry = 0;
+        int idx = len - 1;
+        Stack<Integer> stack = new Stack<>();
+        while (idx >= 0 || k > 0 || carry != 0) {
+            int mod = k % 10;
+            k = k / 10;
+            int add = idx < 0 ? 0 : num[idx--];
+            int sum = mod + add + carry;
+            carry = sum / 10;
+            stack.push(sum%10);
+        } 
+        List<Integer> list = new ArrayList<>();
+        while (!stack.isEmpty()) {
+            list.add(stack.pop());
+        }
+        return list;
     }
 }
