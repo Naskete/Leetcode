@@ -16,4 +16,17 @@ public class JumpGame {
         } 
         return dp[len];
     }
+
+    // 贪心
+    public boolean jumpGame(int[] nums) {
+        int len = nums.length;
+        int arrive = 0;
+        for (int i = 0; i < len; i++) {
+            if (i <= arrive) {
+                arrive = Math.max(arrive, nums[i] + i);
+                if (arrive >= len - 1) return true;
+            }
+        }
+        return false;
+    }
 }
