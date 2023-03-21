@@ -26,4 +26,19 @@ public class ZeroFilled {
             else ans += ++c;
         return ans;
     }
+    // 2348 dp
+    // 每多一个连续的0, 都可以和上一个0所构成的子数组 构成一个新的子数组
+    public long zeroFilledSubarrayDP(int[] nums) {
+        long count = 0;//答案
+        int zeroCnt = 0;//当前0的个数
+        for (int x : nums) {
+            if (x == 0) {
+                zeroCnt++;
+                count += zeroCnt;
+            } else {
+                zeroCnt = 0;
+            }
+        }
+        return count;
+    }
 }
