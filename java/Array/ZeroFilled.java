@@ -2,7 +2,7 @@ package Array;
 
 public class ZeroFilled {
     // time out
-    public long zeroFilledSubarray(int[] nums) {
+    public long zeroFilledSubarrayT(int[] nums) {
         int n = nums.length;
         int res = 0;
         for (int i = 0; i < n; i++) {
@@ -16,5 +16,14 @@ public class ZeroFilled {
             }
         }
         return res;
+    }
+
+    public long zeroFilledSubarray(int[] nums) {
+        long ans = 0L;
+        long c = 0;
+        for (int num : nums)
+            if (num != 0) c = 0;
+            else ans += ++c;
+        return ans;
     }
 }
