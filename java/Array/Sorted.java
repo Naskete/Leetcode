@@ -1,5 +1,9 @@
 package Array;
 
+import java.util.*;
+
+import javax.lang.model.element.QualifiedNameable;;
+
 // 921 https://leetcode.com/problems/sort-an-array
 public class Sorted {
     public int[] sortArray(int[] nums) {
@@ -92,4 +96,31 @@ public class Sorted {
     }
 
 
+    public void quickSortUnRec(int[] nums) {
+        if (nums == null || nums.length < 2) {
+            return;
+        }
+        int n = nums.length;
+        swap(nums, (int)(Math.random() * n), n - 1);
+        int[] equals = getEquals(nums, 0, n - 1);
+        int ll = 0, lr = equals[0] - 1;
+        int rl = equals[1] + 1, rr = n - 1;
+        Stack<Integer> stack = new Stack<>();
+        stack.push(ll);
+        stack.push(lr);
+        stack.push(rl);
+        stack.push(rr);
+        while(!stack.isEmpty()) {
+            int R = stack.pop();
+            int L = stack.pop();
+            if (L < R) {
+                swap(nums, (int)(Math.random() * (R - L + 1)) + L, R);    
+                equals = getEquals(nums, L, R);
+                stack.push(L);
+                stack.push(equals[0] - 1);
+                stack.push(equals[1] + 1);
+                stack.push(R);
+            }
+        }
+    }
 }
