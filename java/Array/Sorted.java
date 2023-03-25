@@ -123,4 +123,28 @@ public class Sorted {
             }
         }
     }
+
+    public void mergeSortUnrec(int[] nums) {
+        if (nums == null || nums.length < 2) {
+            return;
+        }
+        int mergeSize = 1;
+        int N = nums.length;
+        while (mergeSize < N) {
+            int L = 0;
+            while (L < N) {
+                if (mergeSize >= N - L) {
+                    break;
+                }
+                int M = L + mergeSize - 1;
+                int R = M + Math.min(mergeSize, N - M - 1);
+                merge(nums, L, M, R);
+                L = R  + 1;
+            }
+            if (mergeSize * 2 > N) {
+                break;
+            }
+            mergeSize <<= 1;
+        }
+    }
 }
