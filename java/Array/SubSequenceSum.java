@@ -3,6 +3,8 @@ package Array;
 import java.util.ArrayList;
 import java.util.List;
 
+import Array.ThreeSum.Solution;
+
 public class SubSequenceSum {
     public long maxAlternatingSum(int[] nums) {
         List<Integer> list = new ArrayList<>();
@@ -25,5 +27,14 @@ public class SubSequenceSum {
         getResult(nums, cur + 1, len, add, -flag, value);
         int next = val;
         getResult(nums, cur + 1, len, next, flag, value);
+    }
+
+    public long maxAlternatingSumL(int[] nums) {
+        long even = nums[0], odd = 0;
+        for (int i = 1; i < nums.length; i++) {
+            even = Math.max(even, odd + nums[i]);
+            odd = Math.max(odd, even - nums[i]);
+        }
+        return even;
     }
 }
